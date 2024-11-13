@@ -7,19 +7,19 @@ _SCREENSHOT_DIR_=$HOME/Pictures/Screenshots
 _ORIGINAL_DIR_=$_SCREENSHOT_DIR_/Original
 _LOG_FILE_="$_SCREENSHOT_DIR_/.screensht.log"
 # Color
-_FG_COLOR_='#E5E7EB'
-_BG_COLOR_='#F9FAFB'
+_FG_COLOR_='#303C46'
+_BG_COLOR_='#1A1E23'
 _BG_SIZE_=10
 # Border Size Applied when value greater than or equal 3
 _BORDER_SIZE_=3
 _SHADOW_SIZE_='0x20+0+16' # [ weight ] x [ radius ] + [ horizontal ] x [ vertical ]
-_ROUNDED_CORNER_=5
+_ROUNDED_CORNER_=2
 # Author Config
 _AUTHOR_POST_=('South' '+0+15')
 _AUTHOR_NAME_="$USER"
-_AUTHOR_COLOR_='#262626'
+_AUTHOR_COLOR_='#A6DA95'
 # Get Lists Font With "convert -list font | grep -iE 'font:.*' | nl"
-_FONT_SIZE_=24
+_FONT_SIZE_=16
 _FONT_='Geist-Semibold'
 
 function check() {

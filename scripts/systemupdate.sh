@@ -1,27 +1,12 @@
 #!/usr/bin/env bash
+check_packages() {
+	outdate_pkgs = $(pacman -Qu)
+	outdate_pkgs_len = ${outdate_pkgs}
 
-# Check release
-if [ ! -f /etc/arch-release ] ; then
-    exit 0
-fi
-
-# Check for updates
-aur=$(paru -Qua | wc -l)
-ofc=$(pacman -Qu | wc -l)
-
-# Calculate total available updates
-upd=$(( ofc + aur ))
-echo "$upd"
-
-# Show tooltip
-if [ $upd -eq 0 ] ; then
-    echo " Packages are up to date"
-else
-    echo "󱓽 Official $ofc 󱓾 AUR $aur"
-fi
-
-# Trigger upgrade
-if [ "$1" == "up" ] ; then
-    kitty --title systemupdate sh -c 'yay -Syu'
-fi
-
+	if [outdate_pkgs_len -gt 0]; then
+		dunstify ${outdate_pkgs_len} pkgs outdated
+	else
+		dunstify "pkgs are up to date"
+	fi
+}
+check_packages
